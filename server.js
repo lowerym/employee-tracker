@@ -1,13 +1,12 @@
-const mysql2 = require('mysql2');
 const inquirer = require('inquirer');
-const consoleTable = require('console.table');
+const db = require('./db/connection');
 
-require('dotenv').config();
-const db = mysql2.createConnection({
-  host: "localhost",
-  port: 3001,
-  user: "root",
-  database: "employee_tracker_db",
+db.connect(err => {
+  if (err) {
+    console.log(err);
+  }
+  console.log('Database connected');
+  employee_tracker();
 });
 
 var employee_tracker = function() {
