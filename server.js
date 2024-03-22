@@ -188,7 +188,7 @@ var employee_tracker = function() {
         var role = result[i];
       }
     }
-      db.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)`, [answers.first_name, answers.last_name, role.id, answers.manager.id], (err, result) => {
+      db.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)`, [answers.first_name, answers.last_name, role.id, answers.manager], (err, result) => {
         if (err) {
           console.log(err);
         }
